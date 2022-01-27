@@ -21,6 +21,7 @@ public class PreliminaryUnlockingMatrix {
                         result = firstLIC || secondLIC;
                         break;
                     case NOTUSED:
+                        result = true;
                         break;
                 }
                 this.matrix[i][j] = result;
