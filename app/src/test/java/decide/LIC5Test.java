@@ -9,9 +9,6 @@ import static org.junit.Assert.*;
 
 public class LIC5Test {
 
-    LIC5 LIC = new LIC5();
-    Parameters parameters = new Parameters();
-
     // False test 1
     @Test public void lic5FalseSetOf2Points (){
         // Points
@@ -19,6 +16,8 @@ public class LIC5Test {
         Point p2 = new Point(1,0);
         Point[] points = {p1, p2};
         // Test
+        LIC5 LIC = new LIC5();
+        Parameters parameters = new Parameters();
         assertFalse("False test case with set of 2 points", LIC.compute(points, parameters));
     }
 
@@ -31,6 +30,8 @@ public class LIC5Test {
         Point p4 = new Point(3,1);
         Point[] points = {p1, p2, p3, p4};
         // Test
+        LIC5 LIC = new LIC5();
+        Parameters parameters = new Parameters();
         assertFalse("False test case with set of 4 points", LIC.compute(points, parameters));
     }
 
@@ -41,6 +42,8 @@ public class LIC5Test {
         Point p2 = new Point(0,4);
         Point[] points = {p1, p2};
         // Test
+        LIC5 LIC = new LIC5();
+        Parameters parameters = new Parameters();
         assertFalse("False test case with set of 2 points, edge case, same x coordinate", LIC.compute(points, parameters));
     }
 
@@ -51,6 +54,8 @@ public class LIC5Test {
         Point p2 = new Point(0,0);
         Point[] points = {p1, p2};
         // Test
+        LIC5 LIC = new LIC5();
+        Parameters parameters = new Parameters();
         assertTrue("True test case with set of 2 points", LIC.compute(points, parameters));
     }
 
@@ -63,6 +68,8 @@ public class LIC5Test {
         Point p4 = new Point(-1,1);
         Point[] points = {p1, p2, p3, p4};
         // Test
+        LIC5 LIC = new LIC5();
+        Parameters parameters = new Parameters();
         assertTrue("True test case with set of 4 points, last 2 such that x4-x3<0", LIC.compute(points, parameters));
     }
 }
