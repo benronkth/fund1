@@ -41,6 +41,22 @@ public class LIC0Test {
 
         assertFalse(lic0.compute(points, parameters));
     }
+
+    @Test public void computationWherePointsAreNotConsecutiveButAreLENGHT1Apart () {
+        
+        Point points[] = new Point[5];
+        // points[0] and points[4] are squart(128) apart which is more than 10
+        // but because they are not consecutive the algorithm returns false.
+        points[0] = new Point(2, 2);
+        points[1] = new Point(4, 4);
+        points[2] = new Point(6, 6);
+        points[3] = new Point(8, 8);
+        points[4] = new Point(10, 10); 
+
+        parameters.LENGTH1 = 10; 
+ 
+        assertFalse(lic0.compute(points, parameters));
+    }
     
     // Tests that should return true
     @Test public void computationWhereDistanceIsGreaterThanLENGHT1() {
@@ -53,6 +69,7 @@ public class LIC0Test {
         assertTrue(lic0.compute(points, parameters));
     }
 
+   
     
     @Test public void computationWhereLENGHT1IsZero() {
         
