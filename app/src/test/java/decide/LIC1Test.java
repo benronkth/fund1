@@ -8,15 +8,14 @@ import static org.junit.Assert.*;
 
 public class LIC1Test {
 
-    Parameters parameters = new Parameters();
-    LIC1 LIC = new LIC1();
-
     // False test 1
     @Test public void lic1FalseEmptySetOfPoints() {
         // Points
         Point[] points = {};
         // Params: radius1
+        Parameters parameters = new Parameters();
         parameters.RADIUS1 = 1;
+        LIC1 LIC = new LIC1();
         assertFalse("False test case with empty set of points", LIC.compute(points, parameters));
     }
 
@@ -28,7 +27,9 @@ public class LIC1Test {
         Point p3 = new Point(0.6,0.4);
         Point[] points = {p1, p2, p3};
         // Params: radius1
+        Parameters parameters = new Parameters();
         parameters.RADIUS1 = 1;
+        LIC1 LIC = new LIC1();
         assertFalse("False test case with set of 3 points", LIC.compute(points, parameters));
     }
 
@@ -43,7 +44,9 @@ public class LIC1Test {
         Point p6 = new Point(0,0.4);
         Point[] points = {p1, p2, p3, p4, p5, p6};
         // Params: radius1
+        Parameters parameters = new Parameters();
         parameters.RADIUS1 = 1;
+        LIC1 LIC = new LIC1();
         assertFalse("False test case with set of 6 points", LIC.compute(points, parameters));
     }
 
@@ -55,7 +58,9 @@ public class LIC1Test {
         Point p3 = new Point(0,1);
         Point[] points = {p1, p2, p3};
         // Params: radius1
+        Parameters parameters = new Parameters();
         parameters.RADIUS1 = 2;
+        LIC1 LIC = new LIC1();
         assertFalse("False edge test case with set of 3 points on a circle of radius RADIUS_1", LIC.compute(points, parameters));
     }
 
@@ -67,7 +72,9 @@ public class LIC1Test {
         Point p3 = new Point(2,2);
         Point[] points = {p1, p2, p3};
         // Params: radius1
+        Parameters parameters = new Parameters();
         parameters.RADIUS1 = 1;
+        LIC1 LIC = new LIC1();
         assertTrue("True test case with set of 3 points", LIC.compute(points, parameters));
     }
 
@@ -82,7 +89,9 @@ public class LIC1Test {
         Point p6 = new Point(0,0.2);
         Point[] points = {p1, p2, p3, p4, p5, p6};
         // Params: radius1
+        Parameters parameters = new Parameters();
         parameters.RADIUS1 = 1;
+        LIC1 LIC = new LIC1();
         assertTrue("True test case with set of 6 points, last 3 not in a circle of radius RADIUS_1", LIC.compute(points, parameters));
     }
 }
