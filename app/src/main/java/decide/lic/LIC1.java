@@ -7,6 +7,8 @@
 
 package decide.lic;
 
+import com.google.common.base.Function;
+import decide.Functions;
 import decide.datastructures.Parameters;
 import decide.datastructures.Point;
 
@@ -20,6 +22,7 @@ public class LIC1 extends AbstractLIC {
      */
 
     public boolean compute(Point[] points, Parameters parameters) {
+        Functions functions = new Functions();
         // Go through all the points
         // Consider all set of 3 consecutive data points
         for (int i=0; i < points.length-2; i++) {
@@ -28,9 +31,9 @@ public class LIC1 extends AbstractLIC {
             Point point2 = points[i+1];
             Point point3 = points[i+2];
             // Sides triangle
-            double side1 = this.distanceBetweenTwoPoints(point1, point2);
-            double side2 = this.distanceBetweenTwoPoints(point2, point3);
-            double side3 = this.distanceBetweenTwoPoints(point1, point3);
+            double side1 = functions.getDistance(point1, point2);
+            double side2 = functions.getDistance(point2, point3);
+            double side3 = functions.getDistance(point1, point3);
             // Area of the triangle with the Heron's formula
             double s = (side1 + side2 + side3)/2;
             double areaTriangle = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
@@ -41,9 +44,5 @@ public class LIC1 extends AbstractLIC {
             }
         }
         return false;
-    }
-
-    public double distanceBetweenTwoPoints (Point p1, Point p2) {
-        return Math.sqrt(Math.pow(Math.abs(p2.x - p1.x),2)+Math.pow(Math.abs(p2.y - p1.y),2));
     }
 }
