@@ -70,4 +70,17 @@ public class Functions {
         }
 
     }
+
+    /**
+     * Computation of the area of a triangle defined by its vertices using the Shoelace formula
+     *
+     * @param p1 First point
+     * @param p2 Second point
+     * @param p3 Third point
+     * @return The area of the triangle defined by the three points
+     */
+
+    public double getAreaTriangle (Point p1, Point p2, Point p3) {
+        return 0.5 * (p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
+    }
 }

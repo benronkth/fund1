@@ -80,7 +80,24 @@ public class FunctionsTest {
         assertEquals(4,functions.getQuadrant(point));
     }
 
+    @Test public void getAreaTriangle0() {
+        Point p1 = new Point(0,0);
+        Point p2 = new Point(1,0);
+        Point p3 = new Point(2,0);
+        assertEquals(0, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+    }
 
+    @Test public void getAreaTriangleRect() {
+        Point p1 = new Point(0,0);
+        Point p2 = new Point(3,0);
+        Point p3 = new Point(0,4);
+        assertEquals(6, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+    }
 
-
+    @Test public void getAreaTriangleScalene() {
+        Point p1 = new Point(0,0);
+        Point p2 = new Point(3,0);
+        Point p3 = new Point(2,1);
+        assertEquals(1.5, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+    }
 }
