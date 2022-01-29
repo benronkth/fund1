@@ -70,4 +70,22 @@ public class Functions {
         }
 
     }
+
+    /**
+     * Calculates the radian angle between three points, using p1 as vertex
+     * https://www.mathsisfun.com/algebra/trig-cosine-law.html
+     * 
+     * @param p1 vertex point of angle
+     * @param p2 first point of angle
+     * @param p3 second point of angle
+     * @return the angle in radians
+     */
+    public static double getAngle(Point p1, Point p2, Point p3) {
+        double length12 = new Functions().getDistance(p1, p2);
+        double length13 = new Functions().getDistance(p1, p3);
+        double length23 = new Functions().getDistance(p2, p3);
+        double numerator = Math.pow(length12, 2) + Math.pow(length13, 2) - Math.pow(length23, 2);
+        double denominator = 2 * length12 * length13;
+        return Math.acos(numerator / denominator);
+    }
 }

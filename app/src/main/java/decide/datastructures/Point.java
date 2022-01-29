@@ -8,4 +8,8 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+
+    public boolean equals(Point other) {
+        return x == other.x && y == other.y;
+    }
 }
