@@ -58,14 +58,28 @@ public class LIC2Test {
         assertFalse(result);
     }
 
+    // Negative Test, 180 degree angle can not be biggger than pi + epsilon or lesser than pi - epsilon
+    @Test public void computationWith180DegreeAngle() {
+        LIC2 lic2 = new LIC2();
+        Parameters params = new Parameters();
+        params.EPSILON = 0;
+        Point[] points = {
+            new Point(0, 0),
+            new Point(1, 0),
+            new Point(2, 0),
+        };
+        boolean result = lic2.compute(points, params);
+        assertFalse(result);
+    }
+
     // Positive Test
     @Test public void computationWith90DegreeAngle() {
         LIC2 lic2 = new LIC2();
         Parameters params = new Parameters();
-        params.EPSILON = Math.PI / 2;
+        params.EPSILON = Math.PI / 4;
         Point[] points = {
-            new Point(0, 0),
             new Point(1, 0),
+            new Point(0, 0),
             new Point(0, 1),
         };
         boolean result = lic2.compute(points, params);
@@ -73,16 +87,17 @@ public class LIC2Test {
     }
 
     // Positive Test
-    @Test public void computationWith180DegreeAngle() {
+    @Test public void computationWith45DegreeAngle() {
         LIC2 lic2 = new LIC2();
         Parameters params = new Parameters();
         params.EPSILON = Math.PI / 2;
         Point[] points = {
+            new Point(1, 1),
             new Point(0, 0),
-            new Point(1, 0),
-            new Point(-1, 0),
+            new Point(0, 1),
         };
         boolean result = lic2.compute(points, params);
         assertTrue(result);
     }
+
 }
