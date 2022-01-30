@@ -35,13 +35,14 @@ public class LIC10Test {
                 new Point(0,0),
                 new Point(1,0),
                 new Point(5,3),
+                new Point(1,2),
                 new Point(-2,4)
         };
         // Parameters: AREA1, E_PTS, F_PTS
         parameters.AREA1 = 1;
         parameters.E_PTS = 3;
         parameters.F_PTS = 2;
-        assertFalse("False test case, set of 4 points, too large gaps", LIC.compute(points, parameters));
+        assertFalse("False test case, set of 5 points, too large gaps", LIC.compute(points, parameters));
     }
 
     // Negative test
