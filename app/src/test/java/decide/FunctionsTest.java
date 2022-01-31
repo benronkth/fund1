@@ -138,6 +138,37 @@ public class FunctionsTest {
         assertEquals(4,functions.getQuadrant(point));
     }
 
+    @Test public void getAngleInvalid() {
+        Point p1 = new Point(10, 10);
+        Point p2 = new Point(10, 10);
+        Point p3 = new Point(10, 10);
+        double angle = Functions.getAngle(p1, p2, p3);
+        assertEquals(Double.NaN, angle, precisionDelta);
+    }
+
+    @Test public void getAngle0Degrees() {
+        Point p1 = new Point(10, 10);
+        Point p2 = new Point(20, 10);
+        Point p3 = new Point(20, 10);
+        double angle = Functions.getAngle(p1, p2, p3);
+        assertEquals(0, angle, precisionDelta);
+    }
+
+    @Test public void getAngle90Degrees() {
+        Point p1 = new Point(10, 10);
+        Point p2 = new Point(10, 20);
+        Point p3 = new Point(20, 10);
+        double angle = Functions.getAngle(p1, p2, p3);
+        assertEquals(Math.PI / 2, angle,  precisionDelta);
+    }
+
+    @Test public void getAngle180Degrees() {
+        Point p1 = new Point(10, 10);
+        Point p2 = new Point(0, 10);
+        Point p3 = new Point(20, 10);
+        double angle = Functions.getAngle(p1, p2, p3);
+        assertEquals(Math.PI, angle, precisionDelta);
+    }
     @Test public void getAreaTriangle0() {
         Point p1 = new Point(0,0);
         Point p2 = new Point(1,0);
