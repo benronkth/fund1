@@ -14,7 +14,7 @@ public class LIC8Test {
     // True cases
 
     @Test
-    public void computationWherePointsAreOutsideCircleOfRadius10() {
+    public void computationWherePointsAreOutsideCircleOfRadius5() {
         LIC8 lic8 = new LIC8();
         Parameters parameters = new Parameters();
         parameters.A_PTS = 1;
@@ -127,7 +127,7 @@ public class LIC8Test {
 
     
     @Test
-    public void computationWherePointsAreOnCircleOfRadius10() {
+    public void computationWherePointsAreOnCircleOfRadius5() {
         LIC8 lic8 = new LIC8();
         Parameters parameters = new Parameters();
         parameters.A_PTS = 1;
