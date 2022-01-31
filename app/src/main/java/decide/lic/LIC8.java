@@ -23,13 +23,13 @@ public class LIC8 extends AbstractLIC {
             int secondIndex = firstIndex + parameters.A_PTS + 1;
             int thirdIndex = secondIndex + parameters.B_PTS + 1 ; 
             
-            Point circlesCenter = functions.getMidPointOfTheLongestSideInTriangle(points[firstIndex], points[secondIndex], points[thirdIndex]);
-            Point pointOutsideCircle = functions.getPointOusideOfTheLongestSideInTriangle(points[firstIndex], points[secondIndex], points[thirdIndex]);
-            if(functions.isPointOutsideCircle(circlesCenter, parameters.RADIUS1, pointOutsideCircle)){
+            double circumscribedCirclesRadius = functions.getCircumscribedCirclesRadius(points[firstIndex], points[secondIndex], points[thirdIndex]);
+            
+             if(circumscribedCirclesRadius> parameters.RADIUS1){
                
                 return true;
                 
-            };
+            }
         } 
         
         return false;
