@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 
 public class FunctionsTest {
     double precisionDelta = 0.00001;
-
+    Functions functions = new Functions();;
     /**********************************************************************************
      * | Test cases for getDistance()
      ***********************************************************************************/
@@ -94,20 +94,7 @@ public class FunctionsTest {
         Point point = new Point(-1, -1);
         assertEquals(3, functions.getQuadrant(point));
     }
-
-    @Test
-    public void theQuadrantForPointMinus10And8() {
-        Functions functions = new Functions();
-        Point point = new Point(-10, 8);
-        assertEquals(2, functions.getQuadrant(point));
-    }
-
-    @Test
-    public void theQuadrantForPoint15AndMinus7() {
-        Functions functions = new Functions();
-        Point point = new Point(15, -7);
-        assertEquals(4, functions.getQuadrant(point));
-    }
+ 
 
     /**********************************************************************************
      * | Test cases for getCircumscribedCirclesRadius
@@ -141,6 +128,34 @@ public class FunctionsTest {
         assertEquals(Math.sqrt(41), functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
     }
 
-    
+    @Test public void theQuadrantForPointMinus10And8() {
+        Point point = new Point(-10, 8); 
+        assertEquals(2,functions.getQuadrant(point));
+    }
 
+    @Test public void theQuadrantForPoint15AndMinus7() {
+        Point point = new Point(15, -7); 
+        assertEquals(4,functions.getQuadrant(point));
+    }
+
+    @Test public void getAreaTriangle0() {
+        Point p1 = new Point(0,0);
+        Point p2 = new Point(1,0);
+        Point p3 = new Point(2,0);
+        assertEquals(0, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+    }
+
+    @Test public void getAreaTriangleRect() {
+        Point p1 = new Point(0,0);
+        Point p2 = new Point(3,0);
+        Point p3 = new Point(0,4);
+        assertEquals(6, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+    }
+
+    @Test public void getAreaTriangleScalene() {
+        Point p1 = new Point(0,0);
+        Point p2 = new Point(3,0);
+        Point p3 = new Point(2,1);
+        assertEquals(1.5, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+    }
 }
