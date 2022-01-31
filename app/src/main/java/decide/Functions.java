@@ -84,39 +84,6 @@ public class Functions {
         return 0.5 * (p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
     }
 
-
-     /**********************************************************************************
-     * | Test cases for getCircumscribedCirclesRadius
-     ***********************************************************************************/
-    
-    @Test
-    public void theCircumscribedCirclesRadiusOfAZeroTriangle() {
-        Functions functions = new Functions();
-        Point point1 = new Point(1, 1);
-        Point point2 = new Point(1, 1);
-        Point point3 = new Point(1, 1);
-        assertEquals(0, functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
-    }
-    
-    @Test
-    public void theCircumscribedCirclesRadiusOfATriangle() {
-        Functions functions = new Functions();
-        Point point1 = new Point(0, 0);
-        Point point2 = new Point(10, 10);
-        Point point3 = new Point(8, 8);
-        assertEquals(5*Math.sqrt(2), functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
-    }
-
-    
-    @Test
-    public void theCircumscribedCirclesRadiusOfARightTriangle() {
-        Functions functions = new Functions();
-        Point point1 = new Point(0, 0);
-        Point point2 = new Point(0, 10);
-        Point point3 = new Point(8, 0);
-        assertEquals(Math.sqrt(41), functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
-    }
-
     /**
      * Calculates the radius of a smallest circle (circumscribed circle) that 
      * is created using a triangle. 
