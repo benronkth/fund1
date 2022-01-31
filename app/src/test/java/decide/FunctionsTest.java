@@ -10,6 +10,22 @@ public class FunctionsTest {
     Functions functions = new Functions();
     double precisionDelta = 0.00001;
 
+    @Test public void zeroDistanceFromLine() {
+        Point start = new Point(1, 1);
+        Point end = new Point(4, 4);
+        Point point = new Point(2, 2);
+        double result = Functions.getDistanceFromLine(start, end, point);
+        assertEquals(0, result, precisionDelta);
+    }
+
+    @Test public void distanceFromLine() {
+        Point start = new Point(1, 1);
+        Point end = new Point(4, 4);
+        Point point = new Point(1, 4);
+        double result = Functions.getDistanceFromLine(start, end, point);
+        assertEquals((3.0/2.0) * Math.sqrt(2), result, precisionDelta);
+    }
+
     @Test public void distanceCalculatedBetweenTwoPoints() {
         Point startPoint = new Point(-3, 0);
         Point endPoint = new Point(0, 4);
