@@ -77,6 +77,21 @@ public class LIC6Test {
         assertFalse("False when distance == DIST", result);
     }
 
+    @Test public void trueWhenGreaterDistance() {
+        Point[] points = new Point[] {
+            new Point(1, 1),
+            new Point(1, 4),
+            new Point(4, 4),
+        };
+        Parameters params = new Parameters();
+        params.N_PTS = 3;
+        params.DIST = (3.0/2.0) * Math.sqrt(2) - 0.001;
+        LIC6 lic = new LIC6();
+        //Distance will be 3/2 * sqrt(2) ~= 2.14....
+        boolean result = lic.compute(points, params);
+        assertTrue("Ture when distance > DIST", result);
+    }
+
     @Test public void useEuclidianDistanceWhenCoinciding() {
         Point[] points = new Point[] {
             new Point(1, 1),
