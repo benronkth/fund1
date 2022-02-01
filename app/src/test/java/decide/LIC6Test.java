@@ -1,10 +1,8 @@
 package decide;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
 
 import org.junit.Test;
 

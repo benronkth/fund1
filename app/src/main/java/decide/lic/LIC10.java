@@ -18,12 +18,12 @@ public class LIC10 extends AbstractLIC {
             return false;
         }
 
-        Functions functions = new Functions();
+        
         for (int i = 0; i < points.length - parameters.E_PTS - parameters.F_PTS - 2; i++) {
             Point p1 = points[i];
             Point p2 = points[i + parameters.E_PTS + 1];
             Point p3 = points[i + parameters.E_PTS + 1 + parameters.F_PTS + 1];
-            double area = functions.getAreaTriangle(p1, p2, p3);
+            double area = Functions.getAreaTriangle(p1, p2, p3);
             if (area > parameters.AREA1) {
                 return true;
             }
