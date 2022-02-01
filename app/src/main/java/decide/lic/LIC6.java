@@ -29,7 +29,7 @@ public class LIC6 extends AbstractLIC {
                 double distance;
                 // if first and last points coincide and do not form a line, use distance to line points instead
                 if (first.equals(last)) {
-                    distance = new Functions().getDistance(first, point);
+                    distance = Functions.getDistance(first, point);
                 } else {
                     distance = Functions.getDistanceFromLine(first, last, point);
                 }
