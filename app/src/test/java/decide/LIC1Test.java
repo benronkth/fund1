@@ -64,6 +64,20 @@ public class LIC1Test {
         assertFalse("False edge test case with set of 3 points on a circle of radius RADIUS_1", LIC.compute(points, parameters));
     }
 
+    // False test 5
+    @Test public void lic1FalseSetOf3AlignedPoints() {
+        Point[] points = {
+                new Point(0,0),
+                new Point(1,1),
+                new Point(2,2)
+        };
+        // Params: radius1
+        Parameters parameters = new Parameters();
+        parameters.RADIUS1 = Math.sqrt(2);
+        LIC1 LIC = new LIC1();
+        assertFalse("False test case with set of 3 aligned points", LIC.compute(points, parameters));
+    }
+
     // True test
     @Test public void lic1TrueSetOf3Points() {
         // Points
@@ -93,5 +107,19 @@ public class LIC1Test {
         parameters.RADIUS1 = 1;
         LIC1 LIC = new LIC1();
         assertTrue("True test case with set of 6 points, last 3 not in a circle of radius RADIUS_1", LIC.compute(points, parameters));
+    }
+
+    // True test 3
+    @Test public void lic1TrueSetOf3AlignedPoints() {
+        Point[] points = {
+                new Point(0,0),
+                new Point(1,1),
+                new Point(2,2)
+        };
+        // Params: radius1
+        Parameters parameters = new Parameters();
+        parameters.RADIUS1 = 1;
+        LIC1 LIC = new LIC1();
+        assertTrue("True test case with set of 3 aligned points", LIC.compute(points, parameters));
     }
 }
