@@ -26,13 +26,12 @@ public class LIC13 extends AbstractLIC {
             return false;
         }
 
-        Functions functions = new Functions();
         boolean condition1 = false, condition2 = false;
         for (int i=0; i < points.length - parameters.A_PTS - parameters.B_PTS - 2; i++) {
             Point p1 = points[i];
             Point p2 = points[i+parameters.A_PTS+1];
             Point p3 = points[i+parameters.A_PTS+parameters.B_PTS+2];
-            double radiusCircumscribedCircle = functions.getCircumscribedCirclesRadius(p1,p2,p3);
+            double radiusCircumscribedCircle = Functions.getCircumscribedCirclesRadius(p1,p2,p3);
 
             // Precision for double numbers
             double epsilon = 1e-15;
