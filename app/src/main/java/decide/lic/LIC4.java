@@ -14,7 +14,7 @@ import decide.datastructures.Point;
 
 public class LIC4 extends AbstractLIC {
 
-    Functions functions = new Functions(); 
+     
     /**
      * The compute method for LIC4 where true is returned when:
      * There exists at least one set of Q_PTS consecutive data points that lie in more than QUADS
@@ -44,7 +44,7 @@ public class LIC4 extends AbstractLIC {
         int[] pointQuadrants = new int[points.length];
         // Find Quadrant for all the different points
         for(int i = 0; i < points.length; i++){           
-            pointQuadrants[i] = functions.getQuadrant(points[i]); 
+            pointQuadrants[i] = Functions.getQuadrant(points[i]); 
         }
 
         

@@ -26,10 +26,10 @@ public class LIC14 extends AbstractLIC {
             return false;
         }
 
-        Functions functions = new Functions();
+        
         boolean condition1 = false, condition2 = false;
         for (int i=0; i < points.length - parameters.E_PTS - parameters.F_PTS - 2; i++) {
-            double areaTriangle = functions.getAreaTriangle(points[i], points[i+parameters.E_PTS+1], points[i+parameters.E_PTS+parameters.F_PTS+2]);
+            double areaTriangle = Functions.getAreaTriangle(points[i], points[i+parameters.E_PTS+1], points[i+parameters.E_PTS+parameters.F_PTS+2]);
 
             // First condition
             if (areaTriangle > parameters.AREA1) {

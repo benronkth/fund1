@@ -7,7 +7,6 @@
 
 package decide.lic;
 
-import com.google.common.base.Function;
 import decide.Functions;
 import decide.datastructures.Parameters;
 import decide.datastructures.Point;
@@ -22,7 +21,7 @@ public class LIC1 extends AbstractLIC {
      */
 
     public boolean compute(Point[] points, Parameters parameters) {
-        Functions functions = new Functions();
+        
         // Go through all the points
         // Consider all set of 3 consecutive data points
         for (int i=0; i < points.length-2; i++) {
@@ -30,16 +29,10 @@ public class LIC1 extends AbstractLIC {
             Point point1 = points[i];
             Point point2 = points[i+1];
             Point point3 = points[i+2];
-            // Sides triangle
-            double side1 = functions.getDistance(point1, point2);
-            double side2 = functions.getDistance(point2, point3);
-            double side3 = functions.getDistance(point1, point3);
-            // Area of the triangle with the Heron's formula
-            double s = (side1 + side2 + side3)/2;
-            double areaTriangle = Math.sqrt(s*(s-side1)*(s-side2)*(s-side3));
+
             // Get radius of the circumscribed circle of the triangle
-            double circumscribedCircleRadius = (side1 * side2 * side3)/(4 * areaTriangle);
-            if (circumscribedCircleRadius > parameters.RADIUS1) {
+            double radiusCircumscribedCircle = Functions.getCircumscribedCirclesRadius(point1, point2, point3);
+            if (radiusCircumscribedCircle > parameters.RADIUS1) {
                 return true;
             }
         }
