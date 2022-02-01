@@ -3,6 +3,23 @@ package decide;
 import decide.datastructures.Point;
 
 public class Functions {
+
+    /**
+     * Calculates the Euclidean distance between a point and a line made up of two points
+     * Euclidean distance: d^2 = (px1 - px2)^2 + (py1-py2)^2 
+     * 
+     * @param lineStart the start point of the line
+     * @param lineEnd the end point of the line
+     * @param point the point away from the line
+     * @return the Euclidean distance between point and the line.
+     */
+
+    public static double getDistanceFromLine(Point lineStart, Point lineEnd, Point point){
+        double a = (lineEnd.x - lineStart.x) * (lineStart.y - point.y);
+        double b = (lineStart.x - point.x) * (lineEnd.y - lineStart.y);
+        double lineDistance = new Functions().getDistance(lineStart, lineEnd);
+        return Math.abs(a - b) / lineDistance;
+    }
     
      /**
      * Calculates the Euclidean distance between two points using:

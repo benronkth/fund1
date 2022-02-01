@@ -13,6 +13,22 @@ public class FunctionsTest {
      * | Test cases for getDistance()
      ***********************************************************************************/
 
+    @Test public void zeroDistanceFromLine() {
+        Point start = new Point(1, 1);
+        Point end = new Point(4, 4);
+        Point point = new Point(2, 2);
+        double result = Functions.getDistanceFromLine(start, end, point);
+        assertEquals(0, result, precisionDelta);
+    }
+
+    @Test public void distanceFromLine() {
+        Point start = new Point(1, 1);
+        Point end = new Point(4, 4);
+        Point point = new Point(1, 4);
+        double result = Functions.getDistanceFromLine(start, end, point);
+        assertEquals((3.0/2.0) * Math.sqrt(2), result, precisionDelta);
+    }
+
     @Test
     public void distanceCalculatedBetweenTwoPoints() {
         Functions functions = new Functions();
