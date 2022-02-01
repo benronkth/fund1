@@ -3,6 +3,23 @@ package decide;
 import decide.datastructures.Point;
 
 public class Functions {
+
+    /**
+     * Calculates the Euclidean distance between a point and a line made up of two points
+     * Euclidean distance: d^2 = (px1 - px2)^2 + (py1-py2)^2 
+     * 
+     * @param lineStart the start point of the line
+     * @param lineEnd the end point of the line
+     * @param point the point away from the line
+     * @return the Euclidean distance between point and the line.
+     */
+
+    public static double getDistanceFromLine(Point lineStart, Point lineEnd, Point point){
+        double a = (lineEnd.x - lineStart.x) * (lineStart.y - point.y);
+        double b = (lineStart.x - point.x) * (lineEnd.y - lineStart.y);
+        double lineDistance = Functions.getDistance(lineStart, lineEnd);
+        return Math.abs(a - b) / lineDistance;
+    }
     
      /**
      * Calculates the Euclidean distance between two points using:
@@ -13,7 +30,7 @@ public class Functions {
      * @return the Euclidean distance between the points.
      */
 
-    public double getDistance(Point startPoint, Point endPoint){ 
+    public static double getDistance(Point startPoint, Point endPoint){ 
         // Euclidean distance: d^2 = (px1 - px2)^2 + (py1-py2)^2      
         double distance = Math.sqrt(Math.pow(startPoint.x - endPoint.x , 2) + Math.pow(startPoint.y - endPoint.y, 2)); 
         return distance;
@@ -27,7 +44,7 @@ public class Functions {
      * @param points the point whose quadrant should be determined  
      * @return the quadrant number where the point is located in.
      */
-    public int getQuadrant(Point point){
+    public static int getQuadrant(Point point){
 
         // Ambigues cases
         if(point.x == 0){
@@ -81,9 +98,9 @@ public class Functions {
      * @return the angle in radians
      */
     public static double getAngle(Point p1, Point p2, Point p3) {
-        double length12 = new Functions().getDistance(p1, p2);
-        double length13 = new Functions().getDistance(p1, p3);
-        double length23 = new Functions().getDistance(p2, p3);
+        double length12 = Functions.getDistance(p1, p2);
+        double length13 = Functions.getDistance(p1, p3);
+        double length23 = Functions.getDistance(p2, p3);
         double numerator = Math.pow(length12, 2) + Math.pow(length13, 2) - Math.pow(length23, 2);
         double denominator = 2 * length12 * length13;
         return Math.acos(numerator / denominator);
@@ -98,7 +115,7 @@ public class Functions {
      * @return The area of the triangle defined by the three points
      */
 
-    public double getAreaTriangle (Point p1, Point p2, Point p3) {
+    public static double getAreaTriangle (Point p1, Point p2, Point p3) {
         return 0.5 * (p1.x * (p2.y - p3.y) + p2.x * (p3.y - p1.y) + p3.x * (p1.y - p2.y));
     }
 
@@ -109,7 +126,7 @@ public class Functions {
      * @param points the corner points of the triangle
      * @return the radius of a smallest circle (circumscribed circle)
      */
-    public double getCircumscribedCirclesRadius(Point point1, Point point2, Point point3){
+    public static double getCircumscribedCirclesRadius(Point point1, Point point2, Point point3){
         // Sides triangle
  
         double side1 = getDistance(point1, point2);

@@ -8,26 +8,42 @@ import static org.junit.Assert.*;
 
 public class FunctionsTest {
     double precisionDelta = 0.00001;
-    Functions functions = new Functions();;
+    ;
     /**********************************************************************************
      * | Test cases for getDistance()
      ***********************************************************************************/
 
+    @Test public void zeroDistanceFromLine() {
+        Point start = new Point(1, 1);
+        Point end = new Point(4, 4);
+        Point point = new Point(2, 2);
+        double result = Functions.getDistanceFromLine(start, end, point);
+        assertEquals(0, result, precisionDelta);
+    }
+
+    @Test public void distanceFromLine() {
+        Point start = new Point(1, 1);
+        Point end = new Point(4, 4);
+        Point point = new Point(1, 4);
+        double result = Functions.getDistanceFromLine(start, end, point);
+        assertEquals((3.0/2.0) * Math.sqrt(2), result, precisionDelta);
+    }
+
     @Test
     public void distanceCalculatedBetweenTwoPoints() {
-        Functions functions = new Functions();
+        
         Point startPoint = new Point(-3, 0);
         Point endPoint = new Point(0, 4);
 
-        assertEquals(5, functions.getDistance(startPoint, endPoint), precisionDelta);
+        assertEquals(5, Functions.getDistance(startPoint, endPoint), precisionDelta);
     }
 
     @Test
     public void distanceBetweenPointsThatAreAtTheSamePosition() {
-        Functions functions = new Functions();
+        
         Point startPoint = new Point(0, 0);
 
-        assertEquals(0, functions.getDistance(startPoint, startPoint), precisionDelta);
+        assertEquals(0, Functions.getDistance(startPoint, startPoint), precisionDelta);
     }
 
     /**********************************************************************************
@@ -46,53 +62,53 @@ public class FunctionsTest {
 
     @Test
     public void theQuadrantForPointZeroAndZero() {
-        Functions functions = new Functions();
+        
         Point point = new Point(0, 0);
-        assertEquals(1, functions.getQuadrant(point));
+        assertEquals(1, Functions.getQuadrant(point));
     }
 
     @Test
     public void theQuadrantForPointMinusOneAndZero() {
-        Functions functions = new Functions();
+        
         Point point = new Point(-1, 0);
-        assertEquals(2, functions.getQuadrant(point));
+        assertEquals(2, Functions.getQuadrant(point));
     }
 
     @Test
     public void theQuadrantForPointZeroAndMinusOne() {
-        Functions functions = new Functions();
+        
         Point point = new Point(0, -1);
-        assertEquals(3, functions.getQuadrant(point));
+        assertEquals(3, Functions.getQuadrant(point));
     }
 
     @Test
     public void theQuadrantForPointZeroAndOne() {
-        Functions functions = new Functions();
+        
         Point point = new Point(0, 1);
-        assertEquals(1, functions.getQuadrant(point));
+        assertEquals(1, Functions.getQuadrant(point));
     }
 
     @Test
     public void theQuadrantForPointOneAndZero() {
-        Functions functions = new Functions();
+        
         Point point = new Point(1, 0);
-        assertEquals(1, functions.getQuadrant(point));
+        assertEquals(1, Functions.getQuadrant(point));
     }
 
     // Other Cases
 
     @Test
     public void theQuadrantForPointOneAndOne() {
-        Functions functions = new Functions();
+        
         Point point = new Point(1, 1);
-        assertEquals(1, functions.getQuadrant(point));
+        assertEquals(1, Functions.getQuadrant(point));
     }
 
     @Test
     public void theQuadrantForPointMinusOneAndMinusOne() {
-        Functions functions = new Functions();
+        
         Point point = new Point(-1, -1);
-        assertEquals(3, functions.getQuadrant(point));
+        assertEquals(3, Functions.getQuadrant(point));
     }
  
 
@@ -102,40 +118,40 @@ public class FunctionsTest {
     
     @Test
     public void theCircumscribedCirclesRadiusOfAZeroTriangle() {
-        Functions functions = new Functions();
+        
         Point point1 = new Point(1, 1);
         Point point2 = new Point(1, 1);
         Point point3 = new Point(1, 1);
-        assertEquals(0, functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
+        assertEquals(0, Functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
     }
     
     @Test
     public void theCircumscribedCirclesRadiusOfATriangle() {
-        Functions functions = new Functions();
+        
         Point point1 = new Point(0, 0);
         Point point2 = new Point(10, 10);
         Point point3 = new Point(8, 8);
-        assertEquals(5*Math.sqrt(2), functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
+        assertEquals(5*Math.sqrt(2), Functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
     }
 
     
     @Test
     public void theCircumscribedCirclesRadiusOfARightTriangle() {
-        Functions functions = new Functions();
+        
         Point point1 = new Point(0, 0);
         Point point2 = new Point(0, 10);
         Point point3 = new Point(8, 0);
-        assertEquals(Math.sqrt(41), functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
+        assertEquals(Math.sqrt(41), Functions.getCircumscribedCirclesRadius(point1,point2,point3), precisionDelta);
     }
 
     @Test public void theQuadrantForPointMinus10And8() {
         Point point = new Point(-10, 8); 
-        assertEquals(2,functions.getQuadrant(point));
+        assertEquals(2,Functions.getQuadrant(point));
     }
 
     @Test public void theQuadrantForPoint15AndMinus7() {
         Point point = new Point(15, -7); 
-        assertEquals(4,functions.getQuadrant(point));
+        assertEquals(4,Functions.getQuadrant(point));
     }
 
     @Test public void getAngleInvalid() {
@@ -173,20 +189,20 @@ public class FunctionsTest {
         Point p1 = new Point(0,0);
         Point p2 = new Point(1,0);
         Point p3 = new Point(2,0);
-        assertEquals(0, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+        assertEquals(0, Functions.getAreaTriangle(p1, p2, p3), precisionDelta);
     }
 
     @Test public void getAreaTriangleRect() {
         Point p1 = new Point(0,0);
         Point p2 = new Point(3,0);
         Point p3 = new Point(0,4);
-        assertEquals(6, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+        assertEquals(6, Functions.getAreaTriangle(p1, p2, p3), precisionDelta);
     }
 
     @Test public void getAreaTriangleScalene() {
         Point p1 = new Point(0,0);
         Point p2 = new Point(3,0);
         Point p3 = new Point(2,1);
-        assertEquals(1.5, functions.getAreaTriangle(p1, p2, p3), precisionDelta);
+        assertEquals(1.5, Functions.getAreaTriangle(p1, p2, p3), precisionDelta);
     }
 }

@@ -34,11 +34,11 @@ public class LIC12 extends AbstractLIC {
         }
 
         boolean condition1 = false, condition2 = false;
-        Functions functions = new Functions();
+        
         for (int i = 0; i < points.length - parameters.K_PTS - 1; i++) {
             Point p1 = points[i];
             Point p2 = points[i + parameters.K_PTS + 1];
-            double dist = functions.getDistance(p1, p2);
+            double dist = Functions.getDistance(p1, p2);
             // First condition
             if (dist > parameters.LENGTH1) {
                 condition1 = true;

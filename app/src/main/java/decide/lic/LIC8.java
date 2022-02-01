@@ -6,7 +6,7 @@ import decide.datastructures.Parameters;
 import decide.datastructures.Point;
 
 public class LIC8 extends AbstractLIC {
-    Functions functions = new Functions();
+    
 
     @Override
     public boolean compute(Point[] points, Parameters parameters) {
@@ -23,7 +23,7 @@ public class LIC8 extends AbstractLIC {
             int secondIndex = firstIndex + parameters.A_PTS + 1;
             int thirdIndex = secondIndex + parameters.B_PTS + 1 ; 
             
-            double circumscribedCirclesRadius = functions.getCircumscribedCirclesRadius(points[firstIndex], points[secondIndex], points[thirdIndex]);
+            double circumscribedCirclesRadius = Functions.getCircumscribedCirclesRadius(points[firstIndex], points[secondIndex], points[thirdIndex]);
             
              if(circumscribedCirclesRadius> parameters.RADIUS1){
                
