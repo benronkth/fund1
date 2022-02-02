@@ -45,6 +45,9 @@ public class Decide {
     }; 
     
     public static boolean decide(Point[] points, Parameters params, LogicalConnectorMatrix lcm, PreliminaryUnlockingVector puv ) {
+        if (points.length < 2 || points.length > 100) {
+            return false;
+        }
         ConditionsMetVector cmv = new ConditionsMetVector();
         for (int i = 0; i < lics.length; i++) {
             cmv.matrix[i] = lics[i].compute(points, params);
