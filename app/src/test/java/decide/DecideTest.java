@@ -58,7 +58,7 @@ public class DecideTest {
         params.N_PTS = 3;
         params.DIST = (3.0/2.0) * Math.sqrt(2);
         params.EPSILON = Math.PI;
-        params.RADIUS1 = 100;
+        params.RADIUS1 = 0.01;
         LogicalConnectorMatrix lcm = new LogicalConnectorMatrix();
         PreliminaryUnlockingVector puv = PreliminaryUnlockingVector.allTrue();
         lcm.matrix[1][2] = LCMValue.ORR;
@@ -70,7 +70,6 @@ public class DecideTest {
     }
 
     @Test public void positiveTestCaseWithLIC2and5and6() {
-        //LIC1 is true, 2 and 6 are false
         Point[] points = new Point[] {
             new Point(1, 1),
             new Point(1, 4),
