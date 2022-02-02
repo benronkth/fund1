@@ -105,7 +105,9 @@ public class DecideTest {
         assertTrue("Positive test case with 6 LICs: 1 5 10 12 13 and 14", result);
     }
 
-    /** False test LICs 1, 5, 10, 12, 13, and 14, LIC14 false **/
+    /** False test LICs 1, 5, 10, 12, 13, and 14
+     * LIC14 false, only AREA2 modified compared to positive test case above
+     **/
     @Test public void falseAtLeast6LICsTrueAnd1FalseFocusOn6LICs () {
         Parameters params = new Parameters();
         // Set parameters
