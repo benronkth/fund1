@@ -64,7 +64,7 @@ public class DecideTest {
         Parameters params = new Parameters();
         
         // For LIC 0
-        params.LENGTH1 = 10; 
+        params.LENGTH1 = 20; 
         
         // For LIC 4 
         params.QUADS = 1;  
@@ -73,7 +73,7 @@ public class DecideTest {
         // For LIC 8
         params.A_PTS = 1;
         params.B_PTS = 1;
-        params.RADIUS1 = 0;
+        params.RADIUS1 = 0.001;
         
         LogicalConnectorMatrix lcm = new LogicalConnectorMatrix();
         PreliminaryUnlockingVector puv = PreliminaryUnlockingVector.allTrue();
